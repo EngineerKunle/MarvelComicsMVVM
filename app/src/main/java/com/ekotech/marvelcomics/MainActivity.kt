@@ -1,4 +1,4 @@
-package com.ekotech.marvelcomics.main
+package com.ekotech.marvelcomics
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
