@@ -105,3 +105,6 @@ lint/tmp/
 *.hprof
 ./idea
 .idea/
+
+#API keys
+apikey.properties

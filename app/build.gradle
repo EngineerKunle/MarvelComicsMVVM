@@ -10,6 +10,9 @@ apply plugin: 'dagger.hilt.android.plugin'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
+def Properties properties = new Properties()
+properties.load(project.rootProject.file("apikey.properties").newDataInputStream())
+
 android {
     compileSdk 31
 
@@ -21,17 +24,19 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String", "BASE_URL", "\"https://gateway.marvel.com:443\"")
+        buildConfigField("String", "BASE_URL", "\"https://gateway.marvel.com:443/\"")
+        buildConfigField("String", "PUBLIC_KEY", properties['PUBLIC_KEY'])
+        buildConfigField("String", "PRIVATE_KEY", properties['PRIVATE_KEY'])
     }
 
     buildTypes {
         debug {
-            buildConfigField("String", "BASE_URL", "\"https://gateway.marvel.com:443\"")
+            buildConfigField("String", "BASE_URL", "\"https://gateway.marvel.com:443/\"")
         }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField("String", "BASE_URL", "\"https://gateway.marvel.com:443\"")
+            buildConfigField("String", "BASE_URL", "\"https://gateway.marvel.com:443/\"")
         }
     }
     compileOptions {
