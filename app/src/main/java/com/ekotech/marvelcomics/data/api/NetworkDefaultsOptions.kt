@@ -5,5 +5,6 @@ data class NetworkDefaultsOptions(
     val privateKey: String,
     val timeStamp: String,
     val orderBy: String,
-    val titleStartsWith: String
+    val titleStartsWith: String,
+    val limit:Int = 100
 )

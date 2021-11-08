@@ -16,7 +16,7 @@ class ComicSeriesRepository @Inject constructor(
 
     override suspend fun getComicsSeries(): List<ComicsSeries> {
         return withContext(Dispatchers.IO) {
-            marvelService.getComicSeries(networkOptions.publicKey, networkOptions.timeStamp, hashValue).data.results
+            marvelService.getComicSeries(networkOptions.publicKey, networkOptions.timeStamp, hashValue, limit = networkOptions.limit).data.results
         }
     }
 }
