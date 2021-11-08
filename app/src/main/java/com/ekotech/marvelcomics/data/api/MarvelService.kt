@@ -16,6 +16,8 @@ interface MarvelService {
         @Query("orderBy")
         orderBy: String = "title",
         @Query("titleStartsWith")
-        titleStartsWith: String = "avengers"
+        titleStartsWith: String = "avengers",
+        @Query("limit")
+        limit: Int
     ): Marvel
 }
